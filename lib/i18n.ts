@@ -117,6 +117,7 @@ export const copy = {
       subheadline:
         "Every skill builds on the last. Every session is hands-on. By the end, you'll have a real project that proves you can do this.",
       durationLabel: "Duration",
+      topicsLabel: "What you'll cover",
       steps: [
         {
           tag: "FOUNDATION",
@@ -125,6 +126,13 @@ export const copy = {
           description:
             "Master the command line. The foundation every data engineer needs before touching any tool.",
           duration: "~2 weeks",
+          topics: [
+            "Navigating the filesystem & essential commands",
+            "File permissions, users, and processes",
+            "Pipes, redirection, and grep / sed / awk",
+            "Bash scripting & automation with cron",
+            "SSH, package management, and environment setup",
+          ],
         },
         {
           tag: "FOUNDATION",
@@ -133,6 +141,13 @@ export const copy = {
           description:
             "Understand distributed storage and processing. HDFS, MapReduce, YARN — the backbone of big data.",
           duration: "~2 weeks",
+          topics: [
+            "Distributed storage with HDFS",
+            "The MapReduce programming model",
+            "Resource management with YARN",
+            "Cluster architecture & data locality",
+            "When to use Hadoop — and when not to",
+          ],
         },
         {
           tag: "CORE",
@@ -141,6 +156,13 @@ export const copy = {
           description:
             "Containerize everything. Learn to build, run, and orchestrate reproducible data environments.",
           duration: "~1.5 weeks",
+          topics: [
+            "Images, containers, and layers",
+            "Writing Dockerfiles",
+            "Volumes, networking, and ports",
+            "Docker Compose for multi-service stacks",
+            "Building reproducible data environments",
+          ],
         },
         {
           tag: "CORE",
@@ -149,6 +171,13 @@ export const copy = {
           description:
             "Orchestrate your pipelines. Build DAGs, schedule jobs, and monitor workflow dependencies like a pro.",
           duration: "~2 weeks",
+          topics: [
+            "DAGs, tasks, and operators",
+            "Scheduling, backfills, and catchup",
+            "Task dependencies & orchestration",
+            "Connections, hooks, and sensors",
+            "Monitoring, retries, and alerting",
+          ],
         },
         {
           tag: "CORE",
@@ -157,6 +186,13 @@ export const copy = {
           description:
             "Go beyond SQL. Understand ACID, indexing, partitioning, sharding, and database internals.",
           duration: "~1.5 weeks",
+          topics: [
+            "ACID properties & transactions",
+            "Indexing & query optimization",
+            "Partitioning & sharding",
+            "Normalization vs denormalization",
+            "OLTP vs OLAP internals",
+          ],
         },
         {
           tag: "CORE",
@@ -165,6 +201,13 @@ export const copy = {
           description:
             "Design analytical systems. Star schemas, dimensional modeling, slowly changing dimensions, ETL patterns.",
           duration: "~2 weeks",
+          topics: [
+            "Dimensional modeling & star schemas",
+            "Facts and dimensions",
+            "Slowly Changing Dimensions (SCD)",
+            "ETL vs ELT patterns",
+            "Designing analytical data models",
+          ],
         },
         {
           tag: "CORE",
@@ -173,6 +216,13 @@ export const copy = {
           description:
             "Query big data with SQL-like syntax. Build on top of HDFS and integrate with your DWH architecture.",
           duration: "~1.5 weeks",
+          topics: [
+            "HiveQL & SQL-on-Hadoop",
+            "Tables, partitions, and buckets",
+            "File formats (ORC, Parquet)",
+            "Integrating Hive with the warehouse",
+            "Performance tuning",
+          ],
         },
         {
           tag: "ADVANCED",
@@ -181,6 +231,13 @@ export const copy = {
           description:
             "Process massive datasets at scale. DataFrames, transformations, optimizations, and real ETL jobs.",
           duration: "~2.5 weeks",
+          topics: [
+            "Spark architecture & execution model",
+            "RDDs vs DataFrames",
+            "Transformations & actions",
+            "Joins, aggregations, and UDFs",
+            "Performance tuning & partitioning",
+          ],
         },
         {
           tag: "ADVANCED",
@@ -189,6 +246,13 @@ export const copy = {
           description:
             "Real-time processing with Spark Structured Streaming. Micro-batches, windowing, stateful operations.",
           duration: "~2 weeks",
+          topics: [
+            "The Structured Streaming model",
+            "Micro-batch vs continuous processing",
+            "Windowing & watermarking",
+            "Stateful operations",
+            "Reading from and writing to Kafka",
+          ],
         },
         {
           tag: "ADVANCED",
@@ -197,6 +261,13 @@ export const copy = {
           description:
             "The backbone of real-time data pipelines. Producers, consumers, topics, partitions, Kafka Connect.",
           duration: "~2 weeks",
+          topics: [
+            "Topics, partitions, and offsets",
+            "Producers & consumers",
+            "Consumer groups & rebalancing",
+            "Kafka Connect & schema registry",
+            "Building real-time pipelines",
+          ],
         },
         {
           tag: "CAPSTONE",
@@ -205,6 +276,13 @@ export const copy = {
           description:
             "Build a real end-to-end data pipeline from scratch. Ingest → Transform → Store → Visualize. Evaluated individually. Goes straight into your portfolio.",
           duration: "~3 weeks",
+          topics: [
+            "Scoping a real end-to-end pipeline",
+            "Ingestion → transformation → storage → visualization",
+            "Combining the full stack you learned",
+            "Code review & engineering best practices",
+            "Portfolio-ready delivery & presentation",
+          ],
         },
       ],
       bottomStatement:
@@ -536,6 +614,7 @@ export const copy = {
       subheadline:
         "كل مهارة بتبني على اللي قبلها. كل session عملي. في النهاية هيكون معاك بروجيكت حقيقي يثبت إنك تقدر.",
       durationLabel: "المدة",
+      topicsLabel: "اللي هتغطّيه",
       steps: [
         {
           tag: "FOUNDATION",
@@ -544,6 +623,13 @@ export const copy = {
           description:
             "اتقن سطر الأوامر. الأساس اللي كل مهندس بيانات محتاجه قبل ما يلمس أي tool.",
           duration: "~٢ أسابيع",
+          topics: [
+            "التنقّل في نظام الملفات والأوامر الأساسية",
+            "الصلاحيات والمستخدمين والـ processes",
+            "الـ pipes والـ redirection و grep / sed / awk",
+            "كتابة الـ Bash scripts والأتمتة بـ cron",
+            "SSH وإدارة الحزم وإعداد البيئة",
+          ],
         },
         {
           tag: "FOUNDATION",
@@ -552,6 +638,13 @@ export const copy = {
           description:
             "افهم التخزين والمعالجة الموزعة. HDFS، MapReduce، YARN — العمود الفقري للـ big data.",
           duration: "~٢ أسابيع",
+          topics: [
+            "التخزين الموزّع باستخدام HDFS",
+            "نموذج البرمجة MapReduce",
+            "إدارة الموارد عبر YARN",
+            "معمارية الـ cluster وقُرب البيانات",
+            "إمتى تستخدم Hadoop وإمتى لأ",
+          ],
         },
         {
           tag: "CORE",
@@ -560,6 +653,13 @@ export const copy = {
           description:
             "حِط كل حاجة في container. اتعلم تبني وتشغّل وتنظّم بيئات بيانات قابلة للتكرار.",
           duration: "~١.٥ أسبوع",
+          topics: [
+            "الـ images والـ containers والطبقات",
+            "كتابة الـ Dockerfiles",
+            "الـ volumes والشبكات والـ ports",
+            "Docker Compose لتشغيل عدة خدمات",
+            "بناء بيئات بيانات قابلة لإعادة الإنتاج",
+          ],
         },
         {
           tag: "CORE",
@@ -568,6 +668,13 @@ export const copy = {
           description:
             "نظّم الـ pipelines بتاعتك. ابنِ DAGs، جدول المهام، وراقب الـ dependencies كالمحترفين.",
           duration: "~٢ أسابيع",
+          topics: [
+            "الـ DAGs والـ tasks والـ operators",
+            "الجدولة والـ backfills",
+            "الاعتماديات وتنسيق المهام",
+            "الـ connections والـ hooks والـ sensors",
+            "المراقبة وإعادة المحاولة والتنبيهات",
+          ],
         },
         {
           tag: "CORE",
@@ -576,6 +683,13 @@ export const copy = {
           description:
             "تجاوز الـ SQL. افهم ACID، الـ indexing، الـ partitioning، الـ sharding، وداخل قواعد البيانات.",
           duration: "~١.٥ أسبوع",
+          topics: [
+            "خصائص ACID والـ transactions",
+            "الـ indexing وتحسين الاستعلامات",
+            "الـ partitioning والـ sharding",
+            "الـ normalization مقابل denormalization",
+            "الفرق بين OLTP و OLAP من الداخل",
+          ],
         },
         {
           tag: "CORE",
@@ -584,6 +698,13 @@ export const copy = {
           description:
             "صمّم أنظمة تحليلية. Star schemas، النمذجة البُعدية، الـ SCD، وأنماط الـ ETL.",
           duration: "~٢ أسابيع",
+          topics: [
+            "النمذجة البُعدية والـ star schemas",
+            "الـ facts والـ dimensions",
+            "الأبعاد بطيئة التغيّر (SCD)",
+            "أنماط ETL مقابل ELT",
+            "تصميم نماذج بيانات تحليلية",
+          ],
         },
         {
           tag: "CORE",
@@ -592,6 +713,13 @@ export const copy = {
           description:
             "استعلم عن الـ big data بصيغة شبيهة بالـ SQL. ابنِ فوق HDFS واربطه بمعمارية الـ DWH.",
           duration: "~١.٥ أسبوع",
+          topics: [
+            "لغة HiveQL والـ SQL فوق Hadoop",
+            "الجداول والـ partitions والـ buckets",
+            "صيغ الملفات (ORC، Parquet)",
+            "دمج Hive مع الـ warehouse",
+            "تحسين الأداء",
+          ],
         },
         {
           tag: "ADVANCED",
@@ -600,6 +728,13 @@ export const copy = {
           description:
             "عالج datasets ضخمة على نطاق واسع. DataFrames، transformations، تحسينات، و ETL حقيقي.",
           duration: "~٢.٥ أسبوع",
+          topics: [
+            "معمارية Spark ونموذج التنفيذ",
+            "الـ RDDs مقابل الـ DataFrames",
+            "الـ transformations والـ actions",
+            "الـ joins والتجميعات والـ UDFs",
+            "تحسين الأداء والـ partitioning",
+          ],
         },
         {
           tag: "ADVANCED",
@@ -608,6 +743,13 @@ export const copy = {
           description:
             "معالجة لحظية بـ Spark Structured Streaming. micro-batches، windowing، عمليات stateful.",
           duration: "~٢ أسابيع",
+          topics: [
+            "نموذج Structured Streaming",
+            "الـ micro-batch مقابل المعالجة المستمرة",
+            "الـ windowing والـ watermarking",
+            "العمليات ذات الحالة (stateful)",
+            "القراءة والكتابة من/إلى Kafka",
+          ],
         },
         {
           tag: "ADVANCED",
@@ -616,6 +758,13 @@ export const copy = {
           description:
             "العمود الفقري لـ pipelines اللحظية. producers، consumers، topics، partitions، Kafka Connect.",
           duration: "~٢ أسابيع",
+          topics: [
+            "الـ topics والـ partitions والـ offsets",
+            "الـ producers والـ consumers",
+            "الـ consumer groups والـ rebalancing",
+            "Kafka Connect والـ schema registry",
+            "بناء pipelines في الزمن الحقيقي",
+          ],
         },
         {
           tag: "CAPSTONE",
@@ -624,6 +773,13 @@ export const copy = {
           description:
             "ابنِ data pipeline حقيقي من البداية للنهاية. Ingest → Transform → Store → Visualize. بيتقيّم فردياً. وبيدخل البورتفوليو بتاعك على طول.",
           duration: "~٣ أسابيع",
+          topics: [
+            "تحديد نطاق pipeline حقيقي من البداية للنهاية",
+            "الاستيعاب ← التحويل ← التخزين ← التصوّر",
+            "دمج الـ stack الكامل اللي اتعلمته",
+            "مراجعة الكود وأفضل ممارسات الهندسة",
+            "تسليم جاهز للبورتفوليو وعرض المشروع",
+          ],
         },
       ],
       bottomStatement:

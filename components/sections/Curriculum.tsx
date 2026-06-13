@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView, useScroll, useTransform } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/hooks/useLanguage";
 import { tagVariant } from "@/lib/i18n";
 import { inViewOnce } from "@/lib/animations";
@@ -69,6 +70,7 @@ export function Curriculum() {
                   index={i}
                   isLeft={isLeft}
                   durationLabel={t.curriculum.durationLabel}
+                  topicsLabel={t.curriculum.topicsLabel}
                   reduced={reduced}
                 />
               );
@@ -104,6 +106,7 @@ type StepData = {
   name: string;
   description: string;
   duration: string;
+  topics: readonly string[];
 };
 
 function Step({
@@ -111,16 +114,20 @@ function Step({
   index,
   isLeft,
   durationLabel,
+  topicsLabel,
   reduced,
 }: {
   step: StepData;
   index: number;
   isLeft: boolean;
   durationLabel: string;
+  topicsLabel: string;
   reduced: boolean;
 }) {
+  const [open, setOpen] = useState(false);
   const variant = tagVariant[step.tag] ?? "cyan";
   const num = String(index + 1).padStart(2, "0");
+  const panelId = `step-topics-${index}`;
 
   return (
     <li className="relative md:grid md:grid-cols-2 md:gap-8">
@@ -144,24 +151,80 @@ function Step({
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         className={cn(
-          "ms-12 rounded-2xl border border-border-subtle bg-bg-surface p-6 md:ms-0",
-          isLeft ? "md:col-start-1 md:me-4 md:text-end" : "md:col-start-2 md:ms-4"
+          "ms-12 overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface transition-colors hover:border-border md:ms-0",
+          open && "border-cyan/40",
+          isLeft ? "md:col-start-1 md:me-4" : "md:col-start-2 md:ms-4"
         )}
       >
-        <div
-          className={cn(
-            "flex items-center gap-3",
-            isLeft ? "md:flex-row-reverse" : ""
-          )}
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls={panelId}
+          className={cn("w-full p-6 text-start", isLeft && "md:text-end")}
         >
-          <span className="font-mono text-sm text-cyan">{num}</span>
-          <Badge variant={variant}>{step.tag}</Badge>
-        </div>
-        <h3 className="mt-3 font-heading text-h3 text-text-primary">{step.name}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-text-secondary">{step.description}</p>
-        <div className="mt-3 font-mono text-xs text-text-muted">
-          {durationLabel}: {step.duration}
-        </div>
+          <div
+            className={cn(
+              "flex items-center gap-3",
+              isLeft ? "md:flex-row-reverse" : ""
+            )}
+          >
+            <span className="font-mono text-sm text-cyan">{num}</span>
+            <Badge variant={variant}>{step.tag}</Badge>
+          </div>
+          <h3 className="mt-3 font-heading text-h3 text-text-primary">{step.name}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-text-secondary">{step.description}</p>
+          <div
+            className={cn(
+              "mt-4 flex items-center gap-2",
+              isLeft ? "md:flex-row-reverse" : ""
+            )}
+          >
+            <span className="font-mono text-xs text-text-muted">
+              {durationLabel}: {step.duration}
+            </span>
+            <span
+              className={cn(
+                "ms-auto flex items-center gap-1.5 text-xs font-semibold text-cyan",
+                isLeft && "md:ms-0 md:me-auto md:flex-row-reverse"
+              )}
+            >
+              <ChevronDown
+                className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
+              />
+              {topicsLabel}
+            </span>
+          </div>
+        </button>
+
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              id={panelId}
+              key="topics"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <ul className="flex flex-col gap-2.5 border-t border-border-subtle px-6 py-5 text-start">
+                {step.topics.map((topic, ti) => (
+                  <li
+                    key={ti}
+                    className="flex items-start gap-2.5 text-sm leading-relaxed text-text-secondary"
+                  >
+                    <span
+                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan"
+                      aria-hidden
+                    />
+                    <span>{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </li>
   );
