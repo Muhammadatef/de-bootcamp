@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, useAnimationControls } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/hooks/useLanguage";
@@ -35,7 +35,11 @@ export function ApplicationForm() {
   const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">(
     "idle"
   );
-  const [shakeKey, setShakeKey] = useState(0);
+  const shakeControls = useAnimationControls();
+
+  const shake = () => {
+    shakeControls.start({ x: [-8, 8, -8, 8, 0], transition: { duration: 0.4 } });
+  };
 
   const {
     register,
@@ -52,7 +56,7 @@ export function ApplicationForm() {
   const onValid = async (data: ApplicationFormData) => {
     if (!cvFile) {
       setCvError(t.form.upload.hint);
-      setShakeKey((k) => k + 1);
+      shake();
       return;
     }
     setSubmitState("submitting");
@@ -74,7 +78,7 @@ export function ApplicationForm() {
     }
   };
 
-  const onInvalid = () => setShakeKey((k) => k + 1);
+  const onInvalid = () => shake();
 
   return (
     <section id="apply" className="bg-bg-primary py-16 md:py-24">
@@ -110,11 +114,10 @@ export function ApplicationForm() {
               </motion.div>
             ) : (
               <motion.form
-                key={`form-${shakeKey}`}
+                key="form"
                 onSubmit={handleSubmit(onValid, onInvalid)}
                 noValidate
-                animate={shakeKey > 0 ? { x: [-8, 8, -8, 8, 0] } : undefined}
-                transition={{ duration: 0.4 }}
+                animate={shakeControls}
                 className="flex flex-col gap-7"
               >
                 {/* Personal Information */}
