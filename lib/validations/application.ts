@@ -1,9 +1,14 @@
 import { z } from "zod";
 
+const yesNo = z.enum(["Yes", "No"], {
+  errorMap: () => ({ message: "Please answer this question" }),
+});
+
 export const applicationSchema = z.object({
   fullName: z.string().min(3, "Name must be at least 3 characters").max(100),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(9, "Please enter a valid phone number"),
+  nationality: z.string().min(1, "Please select your nationality"),
   city: z.enum(["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Other UAE", "Outside UAE"]),
   status: z.enum([
     "Fresh Graduate",
@@ -22,6 +27,14 @@ export const applicationSchema = z.object({
     .min(150, "Please write at least 150 characters — we want to know your story")
     .max(1000, "Please keep it under 1000 characters"),
   goal: z.string().min(1, "Please select your goal"),
+  commit4Months: yesNo,
+  available5Hours: yesNo,
+  timeEffort: yesNo,
+  englishComfortable: yesNo,
+  aboutYou: z
+    .string()
+    .min(20, "Please tell us a little more — at least 20 characters")
+    .max(500, "Please keep it under 500 characters"),
   linkedin: z.string().url().optional().or(z.literal("")),
   github: z.string().url().optional().or(z.literal("")),
   commitment: z.literal(true, {

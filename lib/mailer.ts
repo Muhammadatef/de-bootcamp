@@ -92,6 +92,9 @@ export function buildNotificationEmail(data: ApplicationData, cvUrl: string | nu
     <div class="label">Phone (WhatsApp)</div>
     <div class="value">${esc(data.phone)}</div>
 
+    <div class="label">Nationality</div>
+    <div class="value">${esc(data.nationality)}</div>
+
     <div class="label">City</div>
     <div class="value">${esc(data.city)}</div>
 
@@ -114,6 +117,19 @@ export function buildNotificationEmail(data: ApplicationData, cvUrl: string | nu
 
     <div class="label">Motivation</div>
     <div class="motivation">${esc(data.motivation)}</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Commitment & Availability</div>
+    <div class="value">
+      Commit for 4 months: <strong>${esc(data.commit4Months)}</strong><br/>
+      Available 5+ hrs/week: <strong>${esc(data.available5Hours)}</strong><br/>
+      Ready for time & effort: <strong>${esc(data.timeEffort)}</strong><br/>
+      Comfortable in English: <strong>${esc(data.englishComfortable)}</strong>
+    </div>
+
+    <div class="label">About the Applicant</div>
+    <div class="motivation">${esc(data.aboutYou)}</div>
   </div>
 
   ${

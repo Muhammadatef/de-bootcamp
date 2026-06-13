@@ -155,6 +155,20 @@ export function ApplicationForm() {
                     </div>
                   </div>
 
+                  <div>
+                    <FieldLabel htmlFor="nationality">
+                      {t.form.fields.nationality.label}
+                    </FieldLabel>
+                    <Select
+                      id="nationality"
+                      defaultValue=""
+                      placeholder={t.form.selectPlaceholder}
+                      options={zipOptions(formValues.nationality, t.form.nationalityOptions)}
+                      {...register("nationality")}
+                    />
+                    <FieldError message={errors.nationality?.message} />
+                  </div>
+
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <FieldLabel htmlFor="city">{t.form.fields.city.label}</FieldLabel>
@@ -237,6 +251,52 @@ export function ApplicationForm() {
                       {...register("goal")}
                     />
                     <FieldError message={errors.goal?.message} />
+                  </div>
+                </FormSection>
+
+                {/* Commitment & Availability */}
+                <FormSection title={t.form.sectionCommitment}>
+                  <div>
+                    <FieldLabel>{t.form.fields.commit4Months.label}</FieldLabel>
+                    <RadioGroup
+                      options={zipOptions(formValues.yesNo, t.form.yesNoOptions)}
+                      {...register("commit4Months")}
+                    />
+                    <FieldError message={errors.commit4Months?.message} />
+                  </div>
+                  <div>
+                    <FieldLabel>{t.form.fields.available5Hours.label}</FieldLabel>
+                    <RadioGroup
+                      options={zipOptions(formValues.yesNo, t.form.yesNoOptions)}
+                      {...register("available5Hours")}
+                    />
+                    <FieldError message={errors.available5Hours?.message} />
+                  </div>
+                  <div>
+                    <FieldLabel>{t.form.fields.timeEffort.label}</FieldLabel>
+                    <RadioGroup
+                      options={zipOptions(formValues.yesNo, t.form.yesNoOptions)}
+                      {...register("timeEffort")}
+                    />
+                    <FieldError message={errors.timeEffort?.message} />
+                  </div>
+                  <div>
+                    <FieldLabel>{t.form.fields.englishComfortable.label}</FieldLabel>
+                    <RadioGroup
+                      options={zipOptions(formValues.yesNo, t.form.yesNoOptions)}
+                      {...register("englishComfortable")}
+                    />
+                    <FieldError message={errors.englishComfortable?.message} />
+                  </div>
+                  <div>
+                    <FieldLabel htmlFor="aboutYou">{t.form.fields.aboutYou.label}</FieldLabel>
+                    <Textarea
+                      id="aboutYou"
+                      rows={4}
+                      placeholder={t.form.fields.aboutYou.placeholder}
+                      {...register("aboutYou")}
+                    />
+                    <FieldError message={errors.aboutYou?.message} />
                   </div>
                 </FormSection>
 
