@@ -40,16 +40,25 @@ export async function POST(req: NextRequest) {
     let cv: { filename: string; content: Buffer } | null = null;
     let cvUrl: string | null = null;
     if (cvFile && cvFile.size > 0) {
+      // storeCv never throws — storage is best-effort.
       const stored = await storeCv(cvFile, data.fullName);
       cv = { filename: stored.filename, content: stored.buffer };
       cvUrl = stored.url;
     }
 
-    await sendApplicationEmails({ data, cv, cvUrl });
+    try {
+      await sendApplicationEmails({ data, cv, cvUrl });
+    } catch (emailError) {
+      console.error("[apply] Email send failed:", emailError);
+      return NextResponse.json(
+        { error: "We received your details but email delivery failed. Please try again shortly." },
+        { status: 502 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Application submission error:", error);
+    console.error("[apply] Unexpected submission error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
