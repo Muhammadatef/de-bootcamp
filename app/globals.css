@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Backgrounds */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-surface: #0d0d1a;
+  --color-bg-elevated: #0d1117;
+
+  /* Borders */
+  --color-border-subtle: #1e293b;
+  --color-border-default: #2d3748;
+  --color-border-accent: #00d4ff22;
+
+  /* Accent Colors */
+  --color-cyan: #00d4ff;
+  --color-cyan-dim: #00d4ff22;
+  --color-cyan-glow: 0 0 20px #00d4ff44;
+
+  --color-violet: #a78bfa;
+  --color-violet-dim: #a78bfa22;
+
+  --color-amber: #f59e0b;
+  --color-amber-dim: #f59e0b22;
+
+  --color-red: #f43f5e;
+  --color-red-dim: #f43f5e22;
+
+  --color-green: #34d399;
+  --color-green-dim: #34d39922;
+
+  /* Text */
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-faint: #334155;
+
+  /* Tags by category */
+  --tag-foundation: #00d4ff;
+  --tag-core: #a78bfa;
+  --tag-advanced: #f59e0b;
+  --tag-capstone: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+/* Arabic mode: swap the body font for Noto Kufi Arabic */
+html[lang="ar"] body {
+  font-family: var(--font-noto-kufi), sans-serif;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #00d4ff44;
+  border-radius: 2px;
+}
+
+/* Section anchor offset for sticky navbar */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Dot grid background used in the hero */
+.dot-grid {
+  background-image: radial-gradient(circle, #00d4ff 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.04;
+}
