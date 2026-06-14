@@ -117,7 +117,7 @@ export const copy = {
       subheadline:
         "Every skill builds on the last. Every session is hands-on. By the end, you'll have a real project that proves you can do this.",
       durationLabel: "Duration",
-      topicsLabel: "What you'll cover",
+      topicsLabel: "What we will cover",
       steps: [
         {
           tag: "FOUNDATION",
@@ -614,7 +614,7 @@ export const copy = {
       subheadline:
         "كل مهارة بتبني على اللي قبلها. كل session عملي. في النهاية هيكون معاك بروجيكت حقيقي يثبت إنك تقدر.",
       durationLabel: "المدة",
-      topicsLabel: "اللي هتغطّيه",
+      topicsLabel: "اللي هنغطّيه",
       steps: [
         {
           tag: "FOUNDATION",
