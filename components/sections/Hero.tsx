@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/lib/hooks/useLanguage";
 import { useReducedMotionSafe } from "@/lib/hooks/useReducedMotionSafe";
@@ -42,7 +42,7 @@ export function Hero() {
         className="mx-auto grid w-full max-w-container items-center gap-12 px-6 py-16 lg:grid-cols-[60%_40%]"
       >
         {/* Left column: text */}
-        <div>
+        <div className="min-w-0">
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -60,22 +60,23 @@ export function Hero() {
 
             <h1 className="mt-5 font-heading text-hero text-text-primary">
               {words.map((word, i) => (
-                <motion.span
-                  key={`${word}-${i}`}
-                  custom={i}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: (idx: number) => ({
-                      opacity: 1,
-                      y: 0,
-                      transition: { delay: reduced ? 0 : idx * 0.05, duration: 0.4 },
-                    }),
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                  {i < words.length - 1 ? "\u00A0" : ""}
-                </motion.span>
+                <Fragment key={`${word}-${i}`}>
+                  <motion.span
+                    custom={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: (idx: number) => ({
+                        opacity: 1,
+                        y: 0,
+                        transition: { delay: reduced ? 0 : idx * 0.05, duration: 0.4 },
+                      }),
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                  {i < words.length - 1 ? " " : ""}
+                </Fragment>
               ))}
             </h1>
 
