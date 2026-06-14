@@ -44,7 +44,7 @@ export const copy = {
           icon: "🎁",
           title: "Why is it free?",
           body:
-            "The first cohort is free because community matters more than money at this stage. In return, you commit fully — attend every session, complete the project, and help shape what this becomes.",
+            "The first cohort is completely free because community matters more than money at this stage. You pay nothing — we even cover the cost of the workspace we meet in for every session. In return, you commit fully — attend every session, complete the project, and help shape what this becomes.",
         },
         {
           icon: "🎯",
@@ -541,7 +541,7 @@ export const copy = {
           icon: "🎁",
           title: "ليه مجاني؟",
           body:
-            "الكوهورت الأول مجاني لأن المجتمع أهم من الفلوس في المرحلة دي. في المقابل، انت بتلتزم بالكامل — تحضر كل session، تخلص البروجيكت، وتساعد في بناء اللي هييجي بعده.",
+            "الكوهورت الأول مجاني بالكامل لأن المجتمع أهم من الفلوس في المرحلة دي. انت مش هتدفع ولا جنيه — وكمان إحنا اللي بنغطّي تكلفة المكان اللي بنتقابل فيه كل session. في المقابل، انت بتلتزم بالكامل — تحضر كل session، تخلص البروجيكت، وتساعد في بناء اللي هييجي بعده.",
         },
         {
           icon: "🎯",
